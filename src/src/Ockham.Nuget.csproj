@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;net45;net46</TargetFrameworks>
+    <AssemblyName>Ockham.Nuget</AssemblyName>
+    <RootNamespace>Ockham.Nuget</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup> 
+    <Version>0.1.1</Version>
+    <FileVersion>0.1.1</FileVersion>
+    <Authors>Joshua Honig</Authors>
+    <Copyright>Copyright (c) Joshua Honig 2017. All rights reserved.</Copyright>
+    <Description>Ockham.Net Nuget module</Description> 
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>Ockham.Net Nuget Client</Title>
+    <PackageId>Ockham.Nuget</PackageId>
+    <PackageVersion>0.1.1-alpha</PackageVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageTags>ockham nuget</PackageTags>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/joshua-honig/ockham.net/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/joshua-honig/ockham.net</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Ockham.Nuget.xml</DocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="SemanticVersioning" Version="0.9.2" />
+  </ItemGroup>
+   
+</Project>
