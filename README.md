@@ -8,7 +8,8 @@ An easy-to-use .NET wrapper around the official [NuGet.Client](https://github.co
 The problem this library solves for is making it really easy to program or script against the NuGet API.
 
 **Example: Get the full metadata info for a single package ID**
-Straight from one of the unit tests:
+
+Straight from [one of the unit tests](https://github.com/joshua-honig/ockham.net.nuget/blob/master/src/test/PackageLookupTests.cs):
 
 ```C# 
 var repo = new Ockham.NuGet.Repository("https://api.nuget.org/v3/index.json");
