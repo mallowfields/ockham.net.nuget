@@ -32,7 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-List<Lazy<INuGetResourceProvider>> providers = new List<Lazy<INuGetResourceProvider>>();
+var providers = new List<Lazy<INuGetResourceProvider>>();
 providers.AddRange(Repository.Provider.GetCoreV3());
 var packageSource = new PackageSource("https://api.nuget.org/v3/index.json");
 var sourceRepository = new SourceRepository(packageSource, providers);
