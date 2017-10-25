@@ -46,7 +46,7 @@ var packageInfo = metadataResource.GetMetadataAsync(packageIdentity, logger, Can
 Or yet again, but minimizing the `using`s
 
 ```C#
-// REQUIRED, because GetCoreV3() method is an extension method in the using NuGet.Protocol namespace
+// REQUIRED, because GetCoreV3() method is an extension method in the NuGet.Protocol namespace
 using NuGet.Protocol; 
 
 var providers = new System.Collections.Generic.List<System.Lazy<NuGet.Protocol.Core.Types.INuGetResourceProvider>>();
