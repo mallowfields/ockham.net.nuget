@@ -1,9 +1,9 @@
-﻿namespace Ockham.Nuget
+﻿namespace Ockham.Nuget.Commands
 {
     /// <summary>
     /// Represents valid values of the FileConflictAction of the install and update commands
     /// </summary>
-    public enum FileConflictAction.Commands
+    public enum FileConflictAction
     { 
         /// <summary>
         /// 

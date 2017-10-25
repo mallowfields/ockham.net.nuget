@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;net45;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
     <AssemblyName>Ockham.Nuget</AssemblyName>
     <RootNamespace>Ockham.Nuget</RootNamespace>
   </PropertyGroup>
@@ -29,13 +29,5 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
-    <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0" />
-  </ItemGroup>
   
-  <ItemGroup>
-    <PackageReference Include="SemanticVersioning" Version="0.9.2" />
-  </ItemGroup>
-   
 </Project>
