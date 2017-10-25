@@ -19,7 +19,7 @@ var packageInfo = repo.GetPackage("jQuery", "3.1.1");
 
 That `packageInfo` object is a `PackageSearchMetadata` object defined by and returned from the underlying libraries currently included by the [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol/) package. Ockham.NuGet just makes it a lot easier to get to this package info.
 
-The same thing, directly using the NuGet.Client APIs:
+For comparison, here's the same thing, directly using the NuGet.Client APIs:
 
 ```C#
 using NuGet.Common;
