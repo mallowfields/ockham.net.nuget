@@ -12,11 +12,36 @@ The problem this library solves for is making it really easy to program or scrip
 Straight from [one of the unit tests](https://github.com/joshua-honig/ockham.net.nuget/blob/master/src/test/PackageLookupTests.cs):
 
 ```C# 
+// no usings required
 var repo = new Ockham.NuGet.Repository("https://api.nuget.org/v3/index.json");
 var packageInfo = repo.GetPackage("jQuery", "3.1.1"); 
 ```
 
 That `packageInfo` object is a `PackageSearchMetadata` object defined by and returned from the underlying libraries currently included by the [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol/) package. Ockham.NuGet just makes it a lot easier to get to this package info.
+
+The same thing, directly using the NuGet.Client APIs:
+
+```C#
+using NuGet.Common;
+using NuGet.Configuration;
+using NuGet.Packaging.Core;
+using NuGet.Protocol;
+using NuGet.Protocol.Core.Types;
+using NuGet.Versioning;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+List<Lazy<INuGetResourceProvider>> providers = new List<Lazy<INuGetResourceProvider>>();
+providers.AddRange(Repository.Provider.GetCoreV3());
+var packageSource = new PackageSource("https://api.nuget.org/v3/index.json");
+var sourceRepository = new SourceRepository(packageSource, providers);
+var metadataResource = sourceRepository.GetResource<PackageMetadataResource>();
+var nugetVersion = NuGetVersion.Parse("3.1.1");
+var packageIdentity = new PackageIdentity("jQuery", nugetVersion);
+var logger = new NullLogger();
+var packageInfo = metadataResource.GetMetadataAsync(packageIdentity, logger, CancellationToken.None).Result;
+```
 
 ### The Problem, in detail
 NuGet is great, but it is not easy to interact with programmatically. You can easily push, pack and install with the [nuget cli](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), but you cannot easily read package metadata details back into a script with it. The [Package Manager Console](https://docs.microsoft.com/en-us/nuget/tools/package-manager-console) cmdlets do let you do this, but they are only available from the special Package Manager Console host inside Visual Studio. Likewise the [Package Manager UI](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui) in Visual Studio is very powerful, but it's a GUI inside Visual Studio, not a simple object model accessible from .NET code or scripts.
