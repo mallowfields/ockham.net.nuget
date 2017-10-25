@@ -5,7 +5,7 @@ An easy-to-use .NET wrapper around the official [NuGet.Client](https://github.co
 
 > Every Ockham module should solve a clear problem that is not solved in the .Net BCL, or in the particular libraries it is meant to augment.
 
-The problem this library solves for is making it really easy to program or script against the NuGet V3 API.
+The problem this library solves for is making it really easy to program or script against the NuGet API.
 
 **Example: Get the full metadata info for a single package ID**
 Straight from one of the unit tests:
