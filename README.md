@@ -1,5 +1,5 @@
 # Ockham.NuGet
-An easy-to-use .NET wrapper around the official [NuGet.Client](https://github.com/NuGet/NuGet.Client) packages. Part of the [Ockham.Net project](https://github.com/joshua-honig/ockham.net).
+An easy-to-use .NET wrapper around the official [NuGet.Client](https://github.com/NuGet/NuGet.Client) packages. Part of the [Ockham.Net project](https://github.com/mallowfields/ockham.net).
 
 ## The Problem
 
